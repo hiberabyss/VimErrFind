@@ -1,0 +1,50 @@
+*VimErrFind.txt*	VimErrFind					Jul 02, 2013
+
+Author:  Charles E. Campbell  <NdrOchip@ScampbellPfamily.AbizM>
+	  (remove NOSPAM from Campbell's email first)
+Copyright: (c) 2004-2013 by Charles E. Campbell		*VimErrFind-copyright*
+           The VIM LICENSE applies to VimErrFind.vim and VimErrFind.txt
+           (see |copyright|) except use "VimErrFind" instead of "Vim"
+	   No warranty, express or implied.  Use At-Your-Own-Risk.
+
+==============================================================================
+1. Contents					*VimErrFind* *VimErrFind-contents*
+
+   1. Contents .............................................|VimErrFind-contents|
+   2. VimErrFind Manual .......................................|VimErrFind-manual|
+   3. VimErrFind History ......................................|VimErrFind-history|
+
+
+==============================================================================
+2. VimErrFind Manual			   			*VimErrFind-manual*
+
+	VEF        functionname linenumber
+	VimErrFind functionname linenumber
+	VEF                     linenumber
+	VimErrFind              linenumber
+
+For the two variants that use a functionname, one must either
+
+  * have a tags database that maps the functionname to a file to be opened
+
+  * must be in vim's window currently editing the file that holds the
+    requested function
+
+These commands will cause one to jump to the designated function and line
+number relative to the beginning of the function.
+
+
+==============================================================================
+3. VimErrFind History					*VimErrFind-history*
+
+version 2  Nov 23, 2004: if first search fails, tries case insensitive search
+           Aug 02, 2005: one argument means use line number and current function
+           Jun 13, 2006: fun! not supported previously (fun was)
+           Oct 27, 2007: added ability to handle <count>VEF
+           Jan 04, 2008: fixed bugs with finding fun! fname#Funcname(...)
+           May 29, 2008: searches now go backwards from current line
+	   Apr 17, 2012: will use tags (when the current buffer-based searches fail)
+			 to find the requested function
+	   Jul 02, 2013: used some "norm! $"s before search()-backwards to
+	   		 catch the current line, too.
+version 1              : implemented :VEF funcname linenum
